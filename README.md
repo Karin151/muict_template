@@ -1,2 +1,2 @@
 # latex-template-muict
-Latex template used in my documents (in ICT, Mahidol)
+Latex template used in my documents (at Faculty of ICT, Mahidol University)
