@@ -1,0 +1,69 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2cm,footskip=1cm]{geometry}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{color}
+
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{%  the preset of fancyhdr 
+  \fancyhf{} % clear all header and footer fields
+  \fancyhead[C]{\textbf{ITCSxxx Course Name Here} \medskip}
+  \fancyhead[L]{\includegraphics[height=2.5em]{mahidol_logo.png}}
+  \fancyhead[R]{\includegraphics[height=2.5em]{ict_logo.png}}
+  \fancyfoot[C]{Page \thepage} % except the center
+  \renewcommand{\headrulewidth}{0.1pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+\pagestyle{plain}
+
+\title{Title of The Lab}
+\author{}  % leave blank
+\date{}    % leave blank
+
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vspace{-2em}%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \textbf{\@title} \par}%
+    \vskip 1.5em%
+    {\large
+      \lineskip .5em%
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+    \vskip 1em%
+    {\large \@date}
+  \end{center}%
+  \vspace{-2em}}
+\makeatother
+
+\begin{document}
+  \maketitle
+
+  % main instruction
+  {\large\textbf{Instructions}}
+  \begin{enumerate}
+    \setlength\itemsep{0pt}
+    \item Create and run the vecAdd.cu program.
+
+\begin{lstlisting}[language=bash]
+  nvcc -deviceemu -o vecAdd vecAdd.cu
+\end{lstlisting}
+
+    \item Run the program.
+
+    {\color{red}
+    \item  Submit your work on the e-learning along with the result.
+    }
+  \end{enumerate}
+
+\end{document}
