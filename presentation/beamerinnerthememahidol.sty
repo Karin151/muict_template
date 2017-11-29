@@ -1,0 +1,51 @@
+\mode<presentation>
+
+\setbeamerfont{frametitle}{size=\fontsize{20pt}{8pt},series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\fontsize{14pt}{8pt}}
+
+% Frame title
+\defbeamertemplate*{frametitle}{mahidol}[1][]
+{
+  \vskip0.85cm%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle} 
+  \begin{tikzpicture}
+  \useasboundingbox[fill=mahidolblue](0,0) rectangle(\the\paperwidth,1.2);
+  %\fill[color=mahidolblue] (0,0) rectangle(\the\paperwidth,1.2);
+   \ifx\insertframesubtitle\@empty%
+      {\node[anchor=west, white,font=\large] at (0.5,0.55){\insertframetitle};}
+      \else%
+      {\node[anchor= west, white,font=\large] at (0.5,0.75){\insertframetitle};%
+       \node[anchor= west, white,font=\small] at (0.5,0.35){\insertframesubtitle};}%
+  \fi
+  \end{tikzpicture}
+  \end{beamercolorbox}
+}
+
+% Section Page
+% Frame title
+\defbeamertemplate*{section background}{mahidol}[1][]
+{
+    
+}
+
+\defbeamertemplate*{section page}{mahidol}[1][]
+{
+    \vskip2.5cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=2.5cm,#1]{section page header}
+        \centering
+        \usebeamerfont{title}\color{white}\insertsection\par%
+    \end{beamercolorbox}
+    %\tableofcontents[currentsection,currentsubsection]
+    \vfill
+}
+
+\AtBeginSection{\frame{\sectionpage}}
+
+%\AtBeginSection[]
+%{
+%    \begin{frame}{\thesection}
+%        \tableofcontents[currentsection,currentsubsection]
+%    \end{frame}
+%    \addtocounter{framenumber}{-1}
+%}
+\mode<all>

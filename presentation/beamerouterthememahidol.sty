@@ -1,0 +1,67 @@
+\mode<presentation>
+
+\setbeamertemplate{background}{
+    \begin{tikzpicture}
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \ifnum\thepage=1%
+    \fill[color=mahidolblue] (0,0) rectangle (\the\paperwidth,\the\paperheight);
+    \node[inner sep=0pt] (bg) at (6.2,5)
+    {\includegraphics[width=\the\paperwidth]{cover_bg.png}};
+    
+    %logo
+    \node[inner sep=0pt] (mahidol) at (1.65,9.15)
+    {\includegraphics[scale=0.3]{mahidol_logo_white.png}};
+    
+    \node[inner sep=0pt] (ict) at (11.0,9.15)
+    {\includegraphics[scale=0.3]{ict_logo.png}};
+    \else%
+    \ifx\insertframetitle\@empty%check if section page
+        \fill[mahidolgold,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \node[inner sep=0pt] (bg) at (6.2,5)
+        {\includegraphics[width=\the\paperwidth]{chapter_bg.png}}; 
+        
+        %logo
+        \node[inner sep=0pt] (mahidol) at (1.65,9.15)
+        {\includegraphics[scale=0.3]{mahidol_logo_white.png}};
+        
+        \node[inner sep=0pt] (ict) at (11.0,9.15)
+        {\includegraphics[scale=0.3]{ict_logo.png}};
+    \else\relax
+       \node[inner sep=0pt] (bg) at (6.2,5)
+       {\includegraphics[width=\the\paperwidth]{content_bg.png}};
+       
+       %logo
+       \node[inner sep=0pt] (mahidol) at (1.65,9.15)
+       {\includegraphics[scale=0.3]{mahidol_logo.png}};
+       \node[inner sep=0pt] (ict) at (11.0,9.15)
+       {\includegraphics[scale=0.3]{ict_logo_white.png}};
+    \fi
+    \fi
+    
+    \end{tikzpicture}
+}
+
+\setbeamerfont{title}{size=\fontsize{28pt}{14pt},series=\bfseries}
+\setbeamerfont{subtitle}{size=\fontsize{16pt}{14pt},shape=\itshape}
+\setbeamerfont{author}{size=\fontsize{16pt}{8pt}}
+\setbeamerfont{institute}{size=\fontsize{12pt}{10pt}}
+\setbeamerfont{date}{size=\fontsize{10pt}{10pt}}
+
+% Title page
+\defbeamertemplate*{title page}{mahidol}[1][]
+{
+    \vskip2.5cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=2.5cm,#1]{title page header}
+        \centering
+        \usebeamerfont{title}\inserttitle\par%
+        \usebeamerfont{subtitle}\insertsubtitle%
+    \end{beamercolorbox}
+    \vskip0.2cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=2.8cm,#1]{author}
+        \centering
+        \usebeamerfont{author}\insertauthor\par%
+        \usebeamerfont{institute}\insertinstitute\par%
+        \usebeamerfont{date}\insertdate%
+    \end{beamercolorbox}
+    \vfill
+}
